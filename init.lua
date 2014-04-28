@@ -16,6 +16,7 @@ bar_front          = { 0.5, 0.35,-0.5,-0.5, 0.4,-0.4};
 
 bar_left_long      = {-0.4, 0.35,-0.5,-0.5, 0.4, 0.5}; 
 bar_right_long     = { 0.4, 0.35,-0.5, 0.5, 0.4, 0.5};
+bar_front_long     = { 0.5, 0.35,-0.5,-0.5, 0.4,-0.4};
 
 groundplate_small  = {-0.4,-0.45,-0.5,  0.4,-0.4,0.5};
 groundplate_corner = {-0.5,-0.45,-0.5,  0.5,-0.4,0.5}; -- slightly larger
@@ -110,6 +111,31 @@ local BRIDGE_PARTS = {
                          }, "" },
 
 	-- handrails for the top of starcaises so that people won't fall down
+
+         { "handrail_post","single post for handrails", {
+                                        leg_front_left, },
+			 { { "",    "",    ""    },
+			   { STICK, "",    ""    },
+			   { STICK, "",    ""    }
+			 }, "" },
+
+        { "handrail_runner_lh","running handrail, single rail with one post on left", {
+                                        leg_front_left, 
+                                        bar_front_long, },
+                         { { "",    "",    ""    },
+                           { "",    "",    ""    },
+                           { STICK, RAIL,  ""    }
+                         }, "" },
+
+        { "handrail_runner_rh","running handrail, single rail with one post on right", {
+                                        leg_front_right,
+                                        bar_front_long, },
+                         { { "",    "",    ""    },
+                           { "",    "",    ""    },
+                           { "",    RAIL,  STICK }
+                         }, "" },
+
+
 	{ "handrail_top", "handrail for staircases, one side closed", {
 					leg_front_left,
 					leg_front_right,
@@ -120,15 +146,36 @@ local BRIDGE_PARTS = {
                          }, "" },
 
 
-	{ "handrail_corner", "handrail for staircases, two sides closed", {
+	{ "handrail_corner", "handrail for staircases, single post with two rails", {
 					leg_front_left,
-					leg_front_right,
-					bar_front, 
-					bar_left },
+					bar_front_long, 
+					bar_left_long },
+                         { { "",    "",    ""    },
+                           { RAIL,  "",    ""    },
+                           { STICK, RAIL,  ""    }
+                         }, "" },
+
+        { "handrail_corner1", "handrail for staircases, two posts with two rails", {
+                                        leg_front_left,
+                                        leg_front_right,
+                                        bar_front,
+                                        bar_left_long },
+                         { { "",    "",    ""    },
+                           { RAIL,  "",    ""    },
+                           { STICK, RAIL,  STICK }
+                         }, "" },
+
+        { "handrail_corner2", "handrail for staircases, three posts with two rails", {
+                                        leg_front_left,
+                                        leg_front_right,
+                                        leg_back_left,
+                                        bar_front,
+                                        bar_left },
                          { { STICK, "",    ""    },
                            { RAIL,  "",    ""    },
                            { STICK, RAIL,  STICK }
                          }, "" },
+
 
 	{ "handrail_closed", "handrail for staircases, three sides closed", {
 					leg_front_left,
